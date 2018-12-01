@@ -10,15 +10,25 @@ public class LinearSearch {
 
     private Integer sNum;
     private List<Integer> sList;
-    private Integer gNum;
-    private List<Integer> gList;
+    private Integer count = 0;
 
-    public LinearSearch(int n, Integer[] s, int g, Integer[] t) {
+    public LinearSearch(int n, Integer[] s) {
         this.sNum = n;
         this.sList = Arrays.asList(s);
-        this.gNum = g;
-        this.gList = Arrays.asList(t);
+    }
 
+    public void search(int g) {
+        for (int i = 0; i < sNum; i++) {
+            if (g != sList.get(i)) {
+                continue;
+            }
+            count++;
+            return;
+        }
+    }
+
+    public void print() {
+        System.out.println(count);
     }
 
     public static void main(String[] args) throws IOException {
@@ -31,11 +41,11 @@ public class LinearSearch {
         }
         Integer gNum = Integer.parseInt(br.readLine());
         String[] gStr = br.readLine().split(" ");
-        int[] g = new int[gNum];
-        for (int i = 0; i < gNum; i++) {
-            g[i] = Integer.parseInt(sStr[i]);
-        }
-        LinearSearch linearSearch = new LinearSearch(sNum, s, gNum, g);
 
+        LinearSearch linearSearch = new LinearSearch(sNum, s);
+        for (int i = 0; i < gNum; i++) {
+            linearSearch.search(Integer.parseInt(gStr[i]));
+        }
+        linearSearch.print();
     }
 }
