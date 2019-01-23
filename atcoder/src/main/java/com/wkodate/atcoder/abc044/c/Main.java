@@ -14,6 +14,7 @@ public class Main {
         }
 
         // dp[j][k][s]は、x1,...,xj から k 枚選んで xi の合計を s にするような選び方の総数
+        // http://arc060.contest.atcoder.jp/data/arc/060/editorial.pdf
         long[][][] dp = new long[n + 1][n + 1][n * a + 1];
         for (int j = 0; j <= n; j++) {
             for (int k = 0; k <= n; k++) {
@@ -40,6 +41,7 @@ public class Main {
         }
 
         long result = 0;
+        // k枚選んだ時の合計がkAになる数を合計する
         for (int i = 1; i <= n; i++) {
             //System.out.println("i=" + i + ", dp[" + n + "][" + i + "][" + (i * a) + "]=" + dp[n][i][i * a]);
             result += dp[n][i][i * a];
