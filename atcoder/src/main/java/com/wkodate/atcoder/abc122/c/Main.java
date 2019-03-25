@@ -21,18 +21,16 @@ public class Main {
         }
 
         for (int i = 0; i < n - 1; i++) {
-            if ("A".equals(str[i]) && "C".equals(str[i + 1])) {
-                if (i == 0) {
-                    ac.add(1);
-                } else {
-                    ac.add(ac.get(i - 1) + 1);
-                }
+            int prev;
+            if (i == 0) {
+                prev = 0;
             } else {
-                if (i == 0) {
-                    ac.add(0);
-                } else {
-                    ac.add(ac.get(i - 1));
-                }
+                prev = ac.get(i - 1);
+            }
+            if ("A".equals(str[i]) && "C".equals(str[i + 1])) {
+                ac.add(prev + 1);
+            } else {
+                ac.add(prev);
             }
         }
         for (int i = 0; i < q; i++) {
