@@ -1,6 +1,7 @@
 package com.wkodate.atcoder.abc123.c;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,18 +14,8 @@ public class Main {
         for (int i = 0; i < 5; i++) {
             abcde.add(sc.nextLong());
         }
-        long bottleNeckCount = 1;
-        for (int i = 0; i < 5; i++) {
-            long target = abcde.get(i);
-            if (target >= n) {
-                continue;
-            }
-            long ceil = (long) Math.ceil((double) n / target);
-            if (bottleNeckCount == 1 || ceil > bottleNeckCount) {
-                bottleNeckCount = ceil;
-            }
-        }
-        System.out.println(bottleNeckCount + 4);
+        Long min = Collections.min(abcde);
+        System.out.println((long) Math.ceil((double) n / min) + 4);
     }
 
 }
