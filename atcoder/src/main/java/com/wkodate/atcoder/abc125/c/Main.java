@@ -18,28 +18,17 @@ public class Main {
         for (int i = 0; i < n; i++) {
             a[i] = sc.nextLong();
         }
-        long maxGcd = 1;
-        // FIXME: This algorithm results in TLE.
-        for (int i = 0; i <= n; i++) {
-            // a[i]を無視する
-            long g = 0;
-            long next = 0;
-            for (int j = 0; j < n - 1; j++) {
-                if (j == i || (j == i - 1 && j >= n - 2)) {
-                    continue;
-                }
-                if (j == i - 1) {
-                    next = a[j + 2];
-                } else {
-                    next = a[j + 1];
-                }
-                g = gcd(a[j], next);
-            }
-            if (g > maxGcd) {
-                maxGcd = g;
-            }
+        long[] left = new long[n + 1];
+        long[] right = new long[n + 1];
+        for (int i = 0; i < n; i++) {
+            left[i + 1] = gcd(left[i], a[i]);
+            right[n - i - 1] = gcd(right[n - i], a[n - i - 1]);
         }
-        System.out.println(maxGcd);
+        long max = 0;
+        for (int i = 0; i < n; i++) {
+            max = Math.max(max, gcd(left[i], right[i + 1]));
+        }
+        System.out.println(max);
     }
 
 }
