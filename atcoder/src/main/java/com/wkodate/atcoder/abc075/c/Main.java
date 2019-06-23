@@ -10,12 +10,21 @@ public class Main {
 
     private static void dfs(int v) {
         visited[v] = true;
-        for (int v2 = 0; v2 < n; v2++) {
-            if (!graph[v][v2] || visited[v2]) {
+        for (int i = 0; i < n; i++) {
+            if (!graph[v][i] || visited[i]) {
                 continue;
             }
-            dfs(v2);
+            dfs(i);
         }
+    }
+
+    private static boolean isBridge() {
+        for (int j = 0; j < n; j++) {
+            if (!visited[j]) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void main(String[] args) {
@@ -40,15 +49,10 @@ public class Main {
             for (int j = 0; j < n; j++) {
                 visited[j] = false;
             }
+
             dfs(0);
 
-            boolean bridge = false;
-            for (int j = 0; j < n; j++) {
-                if (!visited[j]) {
-                    bridge = true;
-                }
-            }
-            if (bridge) {
+            if (isBridge()) {
                 result += 1;
             }
             graph[a[i] - 1][b[i] - 1] = true;
