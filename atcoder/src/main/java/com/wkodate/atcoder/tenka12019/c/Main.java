@@ -10,27 +10,25 @@ public class Main {
         String s = sc.next();
         String[] str = s.split("");
 
-        int allBlackCount = 0;
+        int rightWhite = 0;
+        int leftBlack = 0;
         for (int i = 0; i < str.length; i++) {
             if (".".equals(str[i])) {
-                allBlackCount++;
+                rightWhite++;
             }
         }
-        int allWhiteCount = 0;
-        for (int i = 0; i < str.length - 1; i++) {
-            if ("#".equals(str[i])) {
-                allWhiteCount++;
-            }
-        }
-        int whiteBlackCount = 0;
+        int min = leftBlack + rightWhite;
         for (int i = 0; i < str.length; i++) {
-            // TODO
+            if ("#".equals(str[i])) {
+                leftBlack++;
+            } else {
+                rightWhite--;
+            }
+            if ((leftBlack + rightWhite) < min) {
+                min = leftBlack + rightWhite;
+            }
         }
-
-        System.out.println(allWhiteCount);
-        System.out.println(allBlackCount);
-        System.out.println(whiteBlackCount);
-        System.out.println(Math.min(whiteBlackCount, Math.min(allWhiteCount, allBlackCount)));
+        System.out.println(min);
     }
 
 }
