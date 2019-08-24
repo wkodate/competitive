@@ -11,21 +11,16 @@ public class Main {
         for (int i = 0; i < n; i++) {
             p[i] = sc.nextInt();
         }
-        int key = 0;
-        int value = 0;
+        int count = 0;
         for (int i = 0; i < n; i++) {
             if (p[i] == i + 1) {
                 continue;
             }
-            if (key == 0) {
-                key = i + 1;
-                value = p[i];
-                continue;
-            }
-            if (key != p[i] || value != i + 1) {
-                System.out.println("NO");
-                return;
-            }
+            count++;
+        }
+        if (count > 2) {
+            System.out.println("NO");
+            return;
         }
         System.out.println("YES");
     }
