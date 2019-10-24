@@ -6,13 +6,14 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        double w = sc.nextDouble();
-        double h = sc.nextDouble();
-        if (h / w == 0.75) {
-            System.out.println("4:3");
-            return;
+        String[] n = sc.next().split("");
+        for (int i = 1; i < n.length; i++) {
+            if (!n[i].equals(n[0])) {
+                System.out.println("DIFFERENT");
+                return;
+            }
         }
-        System.out.println("16:9");
+        System.out.println("SAME");
     }
 
 }
