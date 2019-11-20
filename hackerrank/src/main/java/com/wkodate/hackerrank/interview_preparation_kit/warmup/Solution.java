@@ -1,4 +1,4 @@
-package com.wkodate.hackerrank.warmup;
+package com.wkodate.hackerrank.interview_preparation_kit.warmup;
 
 import java.io.IOException;
 import java.util.HashSet;
