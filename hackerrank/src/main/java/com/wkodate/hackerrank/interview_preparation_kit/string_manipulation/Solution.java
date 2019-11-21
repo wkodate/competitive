@@ -5,6 +5,29 @@ import java.util.Map;
 
 public class Solution {
 
+    static int alternatingCharacters(String s) {
+        String[] str = s.split("");
+        return Math.min(deletionCounter(str, "A")
+                , deletionCounter(str, "B"));
+    }
+
+    private static int deletionCounter(String[] s, String pattern) {
+        int deletion = 0;
+        for (String s1 : s) {
+            if (pattern.equals(s1)) {
+                if ("A".equals(pattern)) {
+                    pattern = "B";
+                } else {
+                    pattern = "A";
+                }
+                continue;
+            }
+            deletion++;
+        }
+        return deletion;
+    }
+
+
     static int makeAnagram(String a, String b) {
         Map<String, Integer> map = new HashMap<>();
         String[] aarr = a.split("");
