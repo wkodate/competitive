@@ -1,10 +1,26 @@
 package com.wkodate.hackerrank.interview_preparation_kit.arrays;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Solution {
+
+    static void minimumBribes(int[] q) {
+        int overtake = 0;
+        for (int i = q.length-1; i >= 0; i--) {
+            // Has this person moved more than two positions
+            if (q[i] - (i + 1) > 2) {
+                System.out.println("Too chaotic");
+                return;
+            }
+            // count the number of people who overtake a person
+            for (int j = Math.max(0, q[i] - 2); j < i; j++) {
+                if (q[j] > q[i]) {
+                    overtake++;
+                }
+            }
+        }
+        System.out.println(overtake);
+    }
 
     static int[] rotLeft(int[] a, int d) {
         int[] rotated = new int[a.length];
