@@ -11,12 +11,7 @@ public class Main {
         char[] ch = s.toCharArray();
         String[] result = new String[ch.length];
         for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            c += n;
-            if (c >= 91) {
-                c -= 26;
-            }
-            result[i] = String.valueOf(c);
+            result[i] = String.valueOf((char) ((ch[i] - 'A' + n) % 26 + 'A'));
         }
         System.out.println(String.join("", result));
     }
