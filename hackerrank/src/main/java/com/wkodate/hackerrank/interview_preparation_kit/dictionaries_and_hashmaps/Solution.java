@@ -2,11 +2,36 @@ package com.wkodate.hackerrank.interview_preparation_kit.dictionaries_and_hashma
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Solution {
+
+    static int sherlockAndAnagrams(String s) {
+        Map<String, Integer> map = new HashMap<>();
+        int count = 0;
+        // generate all substrings(N^2)
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i + 1; j <= s.length(); j++) {
+                // sort all strings e.g. ab & ba both == ab
+                char[] chs = s.substring(i, j).toCharArray();
+                Arrays.sort(chs);
+                String currentSubString = String.valueOf(chs);
+
+                if (map.containsKey(currentSubString)) {
+                    int value = map.get(currentSubString);
+                    count += value;
+                    map.put(currentSubString, value + 1);
+                } else {
+                    map.put(currentSubString, 1);
+                }
+            }
+        }
+        return count;
+    }
 
     static String twoStrings(String s1, String s2) {
         Set<String> set1 = new HashSet<>(Arrays.asList(s1.split("")));
@@ -32,9 +57,8 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        String[] magazine = new String[]{"two", "times", "three", "is", "not", "four"};
-        String[] note = new String[]{"two", "times", "two", "is", "four"};
-        checkMagazine(magazine, note);
+        System.out.println(sherlockAndAnagrams("kkkk"));
+
     }
 
 }

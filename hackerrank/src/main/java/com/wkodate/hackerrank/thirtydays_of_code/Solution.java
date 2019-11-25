@@ -2,6 +2,12 @@ package com.wkodate.hackerrank.thirtydays_of_code;
 
 public class Solution {
 
+    static void loop(int n) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(n + " x " + (i + 1) + " = " + n * (i + 1));
+        }
+    }
+
     static void conditionalStatement(int n) {
         if (n % 2 == 1 || (n >= 6 && n <= 20)) {
             System.out.println("Weird");

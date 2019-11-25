@@ -4,9 +4,27 @@ import java.io.IOException;
 
 public class Solution {
 
+    static int minimumSwaps(int[] arr) {
+        int count = 0;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (i < arr[i] - 1) {
+                swap(arr, i, Math.min(arr.length - 1, arr[i] - 1));
+                count++;
+                i--;
+            }
+        }
+        return count;
+    }
+
+    private static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+
     static void minimumBribes(int[] q) {
         int overtake = 0;
-        for (int i = q.length-1; i >= 0; i--) {
+        for (int i = q.length - 1; i >= 0; i--) {
             // Has this person moved more than two positions
             if (q[i] - (i + 1) > 2) {
                 System.out.println("Too chaotic");
@@ -45,7 +63,7 @@ public class Solution {
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println();
+        System.out.println(minimumSwaps(new int[]{4, 3, 1, 2}));
     }
 
 }
