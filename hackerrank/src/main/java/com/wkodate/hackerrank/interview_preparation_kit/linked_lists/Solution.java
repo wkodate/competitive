@@ -66,17 +66,18 @@ public class Solution {
     }
 
     static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
-        DoublyLinkedListNode node = head;
+        DoublyLinkedListNode newHead = head;
         DoublyLinkedListNode tmp = head;
         while (tmp != null) {
+            // tmpのprevとnextをswapしてnewHeadにする
             DoublyLinkedListNode prev = tmp.prev;
             tmp.prev = tmp.next;
             tmp.next = prev;
-            node = tmp;
+            newHead = tmp;
 
             tmp = tmp.prev;
         }
-        return node;
+        return newHead;
     }
 
     static DoublyLinkedListNode sortedInsert(DoublyLinkedListNode head, int data) {

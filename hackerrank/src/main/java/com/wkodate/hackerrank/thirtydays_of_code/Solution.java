@@ -1,6 +1,19 @@
 package com.wkodate.hackerrank.thirtydays_of_code;
 
+import com.sun.deploy.util.StringUtils;
+
+import java.util.Arrays;
+import java.util.StringJoiner;
+
 public class Solution {
+
+    static void array(int[] arr) {
+        StringJoiner sj = new StringJoiner(" ");
+        for (int i = 0; i < arr.length; i++) {
+            sj.add(String.valueOf(arr[arr.length - i - 1]));
+        }
+        System.out.println(sj.toString());
+    }
 
     static void loop(int n) {
         for (int i = 0; i < 10; i++) {

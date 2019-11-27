@@ -10,6 +10,21 @@ import java.util.Set;
 
 public class Solution {
 
+    static long countTriplets(List<Long> arr, long r) {
+        long count = 0;
+        Map<Long, Long> t2 = new HashMap<>();
+        Map<Long, Long> t3 = new HashMap<>();
+        for (Long a : arr) {
+            count += t3.getOrDefault(a, 0L);
+            if (t2.containsKey(a)) {
+                t3.put(a * r, t3.getOrDefault(a * r, 0L) + t2.get(a));
+            }
+            t2.put(a * r, t2.getOrDefault(a * r, 0L) + 1);
+        }
+        return count;
+    }
+
+
     static int sherlockAndAnagrams(String s) {
         Map<String, Integer> map = new HashMap<>();
         int count = 0;
@@ -57,8 +72,6 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        System.out.println(sherlockAndAnagrams("kkkk"));
-
     }
 
 }
