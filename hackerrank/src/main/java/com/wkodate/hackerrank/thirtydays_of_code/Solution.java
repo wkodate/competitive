@@ -1,8 +1,5 @@
 package com.wkodate.hackerrank.thirtydays_of_code;
 
-import com.sun.deploy.util.StringUtils;
-
-import java.util.Arrays;
 import java.util.StringJoiner;
 
 public class Solution {
