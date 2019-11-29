@@ -4,6 +4,13 @@ import java.util.StringJoiner;
 
 public class Solution {
 
+    static int factorial(int n) {
+        if (n <= 1) {
+            return 1;
+        }
+        return n * factorial(n - 1);
+    }
+
     static void array(int[] arr) {
         StringJoiner sj = new StringJoiner(" ");
         for (int i = 0; i < arr.length; i++) {
