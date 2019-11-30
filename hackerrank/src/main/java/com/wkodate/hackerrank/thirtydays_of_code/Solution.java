@@ -4,6 +4,22 @@ import java.util.StringJoiner;
 
 public class Solution {
 
+    static int binaryNumbers(int n) {
+        String bin = Integer.toBinaryString(n);
+        int max = 0;
+        int count = 0;
+        for (int i = 0; i < bin.length(); i++) {
+            char c = bin.charAt(i);
+            if (c == '1') {
+                count++;
+                max = Math.max(max, count);
+                continue;
+            }
+            count = 0;
+        }
+        return max;
+    }
+
     static int factorial(int n) {
         if (n <= 1) {
             return 1;
