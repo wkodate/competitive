@@ -4,6 +4,14 @@ import java.util.StringJoiner;
 
 public class Solution {
 
+    static void exceptionStringToInteger(String s) {
+        try {
+            System.out.println(Integer.parseInt(s));
+        } catch (NumberFormatException e) {
+            System.out.println("Bad String");
+        }
+    }
+
     static int twoDemensionArrays(int[][] arr) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < 4; i++) {
