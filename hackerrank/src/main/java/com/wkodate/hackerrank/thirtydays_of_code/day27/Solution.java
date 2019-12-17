@@ -23,19 +23,21 @@ public class Solution {
 
     static class TestDataUniqueValues {
         public static int[] get_array() {
-            return;
+            return new int[]{1, 2};
         }
 
         public static int get_expected_result() {
-            return minimum_index();
+            return minimum_index(get_array());
         }
     }
 
     static class TestDataExactlyTwoDifferentMinimums {
         public static int[] get_array() {
+            return new int[]{1, 2, 2, 1};
         }
 
         public static int get_expected_result() {
+            return minimum_index(get_array());
         }
     }
 
