@@ -1,8 +1,27 @@
 package com.wkodate.hackerrank.thirtydays_of_code;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.StringJoiner;
 
 public class Solution {
+
+    static void regexPatternsAndIntroToDatabases(int n, String[][] firstNameEmailID) {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            String firstName = firstNameEmailID[i][0];
+            String emailID = firstNameEmailID[i][1];
+            if (!emailID.endsWith("@gmail.com")) {
+                continue;
+            }
+            list.add(firstName);
+        }
+        Collections.sort(list);
+        for(String name : list) {
+            System.out.println(name);
+        }
+    }
 
     static void sorting(int[] a) {
         int swaps = 0;
