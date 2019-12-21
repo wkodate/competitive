@@ -7,6 +7,19 @@ import java.util.StringJoiner;
 
 public class Solution {
 
+    static void bitwiseAND(int n, int k) {
+        int max = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = i + 1; j <= n; j++) {
+                int aAndB = i & j;
+                if (aAndB < k && aAndB > max) {
+                    max = aAndB;
+                }
+            }
+        }
+        System.out.println(max);
+    }
+
     static void regexPatternsAndIntroToDatabases(int n, String[][] firstNameEmailID) {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < n; i++) {
@@ -18,7 +31,7 @@ public class Solution {
             list.add(firstName);
         }
         Collections.sort(list);
-        for(String name : list) {
+        for (String name : list) {
             System.out.println(name);
         }
     }
@@ -111,7 +124,9 @@ public class Solution {
     }
 
     public static void main(String args[]) {
-        sorting(new int[]{3, 2, 1});
+        bitwiseAND(5, 2);
+        bitwiseAND(8, 5);
+        bitwiseAND(2, 2);
     }
 
 }
